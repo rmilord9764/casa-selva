@@ -162,21 +162,25 @@ export default function HomePage() {
 
       <section id="contacto" className="bg-[#3a2e22] px-6 py-28 text-center text-[#f7f3ec]">
         <h2 className="font-serif text-4xl md:text-5xl">Reservations</h2>
-        <div className="mx-auto mt-10 grid max-w-3xl gap-8 md:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-3xl gap-12 md:grid-cols-2">
           <div>
             <h3 className="text-sm uppercase tracking-widest text-[#d8c7a8]">Office Hours</h3>
-            <p className="mt-3">Monday to Friday 9:00 am - 6:00 pm</p>
+            <p className="mt-4">Monday to Friday 9:00 am - 6:00 pm</p>
             <p>Saturday and Sunday 9:00 am - 12:00 noon</p>
           </div>
           <div>
-            <h3 className="text-sm uppercase tracking-widest text-[#d8c7a8]">Contact</h3>
-            <p className="mt-3">Plantation, Florida 33325</p>
-            <p className="text-[#d8c7a8]">(Full address shared after booking)</p>
-            <p className="mt-2">+1 (305) 916-9438</p>
-            <p>thecasaselva@gmail.com</p>
+            <h3 className="text-sm uppercase tracking-widest text-[#d8c7a8]">Get Social</h3>
+            <div className="mt-4 flex justify-center gap-6">
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-[#d8c7a8]">Instagram</a>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-[#d8c7a8]">Facebook</a>
+            </div>
+            <p className="mt-6 text-sm text-[#d8c7a8]">Tag us in your photos!</p>
           </div>
         </div>
-        <Link href="/reservar" className="mt-12 inline-block rounded-full bg-[#7a8b6f] px-12 py-4 text-sm uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Book your reset</Link>
+        <p className="mx-auto mt-12 max-w-xl text-sm text-[#a89b86]">
+          For privacy, our exact location is never shared publicly. The full address is sent only in your confirmation voucher after booking.
+        </p>
+        <Link href="/reservar" className="mt-10 inline-block rounded-full bg-[#7a8b6f] px-12 py-4 text-sm uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Book your reset</Link>
       </section>
 
       <footer className="bg-[#2c231a] px-6 py-12 text-center text-sm text-[#a89b86]">
