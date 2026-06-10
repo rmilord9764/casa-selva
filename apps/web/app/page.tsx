@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "The Casa Selva · Day Wellness Retreat",
   description:
-    "A hidden tropical sanctuary in Fort Lauderdale for peace, reconnection, and a deeper reset.",
+    "A hidden tropical sanctuary for peace, reconnection, and a deeper reset.",
 };
 
 const experiencia = [
@@ -86,7 +86,7 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-28 text-center">
         <h2 className="font-serif text-4xl md:text-5xl">Remind your body what it can do by itself.</h2>
-        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">The Casa Selva is a hidden tropical sanctuary in Fort Lauderdale created for those seeking peace, reconnection, and a deeper reset.</p>
+        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">The Casa Selva is a hidden tropical sanctuary created for those seeking peace, reconnection, and a deeper reset.</p>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">Surrounded by nature, our space blends sound bath, guided meditation, breathwork, Yoga Nidra, grounding rituals, aromatherapy, and intentional rest.</p>
       </section>
 
@@ -171,8 +171,8 @@ export default function HomePage() {
           <div>
             <h3 className="text-sm uppercase tracking-widest text-[#d8c7a8]">Get Social</h3>
             <div className="mt-4 flex justify-center gap-6">
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-[#d8c7a8]">Instagram</a>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-[#d8c7a8]">Facebook</a>
+              <a href="https://www.instagram.com/thecasaselva/" target="_blank" rel="noopener noreferrer" className="transition hover:text-[#d8c7a8]">Instagram</a>
+              <a href="https://www.facebook.com/profile.php?id=61583658456537" target="_blank" rel="noopener noreferrer" className="transition hover:text-[#d8c7a8]">Facebook</a>
             </div>
             <p className="mt-6 text-sm text-[#d8c7a8]">Tag us in your photos!</p>
           </div>
@@ -185,7 +185,6 @@ export default function HomePage() {
 
       <footer className="bg-[#2c231a] px-6 py-12 text-center text-sm text-[#a89b86]">
         <p className="font-serif text-2xl text-[#f7f3ec]">The Casa Selva</p>
-        <p className="mt-3">A hidden tropical sanctuary - Fort Lauderdale, Florida</p>
         <p className="mt-6">(c) 2026 The Casa Selva. All rights reserved.</p>
       </footer>
     </main>
