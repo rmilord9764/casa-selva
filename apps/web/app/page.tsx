@@ -52,9 +52,9 @@ const galeria = [
 ];
 
 const testimonios = [
-  { texto: "The sound healing experience was incredibly grounding and beautiful. The space itself is magical.", autor: "Adriana (wellness guest)" },
-  { texto: "A hidden sanctuary in the middle of the city. Casa Selva is unlike anything else in South Florida.", autor: "Frank (retreat participant)" },
-  { texto: "A hidden corner of the retreat where nature surrounds you. A private sanctuary.", autor: "Jennifer (private event guest)" },
+  { texto: "A hidden corner of the retreat where nature surrounds you. Enjoy the beauty of the trees and the peaceful outdoor setting that makes Casa Selva feel like a private sanctuary.", autor: "Adriana (wellness guest)" },
+  { texto: "The sound healing experience was incredibly grounding and beautiful. The space itself is magical - every detail feels intentional and calming.", autor: "Frank (retreat participant)" },
+  { texto: "A hidden sanctuary in the middle of the city. Casa Selva is unlike anything else in South Florida - peaceful, soulful, and unforgettable.", autor: "Jennifer (Private event guest)" },
 ];
 
 export default function HomePage() {
@@ -143,15 +143,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-28">
-        <h2 className="mb-12 text-center font-serif text-4xl md:text-5xl">Testimonies</h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {testimonios.map((t) => (
-            <div key={t.autor} className="rounded-2xl bg-white p-8 shadow-sm">
-              <p className="text-[#5c4f40]">{t.texto}</p>
-              <p className="mt-6 text-sm uppercase tracking-widest text-[#7a8b6f]">{t.autor}</p>
-            </div>
-          ))}
+      <section className="relative overflow-hidden py-32">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600618528240-fb9fc964b853?auto=format&fit=crop&w=2000&q=80')" }} />
+        <div className="absolute inset-0 bg-[#3a2e22]/70" />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
+          <h2 className="mb-16 text-center font-serif text-4xl text-[#f7f3ec] md:text-5xl">Testimonies</h2>
+          <div className="grid gap-12 md:grid-cols-3">
+            {testimonios.map((t) => (
+              <div key={t.autor} className="text-[#f7f3ec]">
+                <span className="font-serif text-6xl leading-none text-[#d8c7a8]">&ldquo;</span>
+                <p className="mt-2 text-[15px] leading-relaxed">{t.texto}</p>
+                <p className="mt-6 text-sm font-bold italic">- {t.autor}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
