@@ -45,10 +45,28 @@ const servicios = [
 ];
 
 const galeria = [
-  "https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?auto=format&fit=crop&w=900&q=80",
+  "/galeria/1.png",
+  "/galeria/2.png",
+  "/galeria/3.png",
+  "/galeria/4.png",
+  "/galeria/5.png",
+  "/galeria/6.png",
+  "/galeria/7.png",
+  "/galeria/8.png",
+  "/galeria/9.png",
+  "/galeria/10.png",
+  "/galeria/11.png",
+  "/galeria/12.png",
+  "/galeria/13.png",
+  "/galeria/14.png",
+  "/galeria/15.png",
+  "/galeria/16.png",
+  "/galeria/17.png",
+  "/galeria/18.png",
+  "/galeria/19.png",
+  "/galeria/20.png",
+  "/galeria/21.png",
+  "/galeria/22.png",
 ];
 
 const testimonios = [
