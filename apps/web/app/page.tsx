@@ -1,4 +1,6 @@
+
 import Link from "next/link";
+import Galeria from "../components/Galeria";
 
 export const metadata = {
   title: "The Casa Selva · Day Wellness Retreat",
@@ -27,13 +29,13 @@ const servicios = [
   {
     titulo: "Private Sound Bath",
     precio: "1 adult | 1 hour $160 | $60 per additional adult",
-    img: "https://images.unsplash.com/photo-1591291621164-2c6367723315?auto=format&fit=crop&w=1200&q=80",
+    img: "/galeria/26.png",
     items: ["Personalized intention setting", "Guided meditation + breathwork", "Somatic relaxation techniques", "Immersive sound healing (focused on you)"],
   },
   {
     titulo: "Group Sound Bath",
     precio: "Join a class up to 8 adults | 1 hour $80pp",
-    img: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?auto=format&fit=crop&w=1200&q=80",
+    img: "/galeria/8.png",
     items: ["Guided meditation to arrive", "Gentle breathwork", "Intention setting", "Immersive sound healing with bowls"],
   },
   {
@@ -152,13 +154,7 @@ export default function HomePage() {
 
       <section id="galeria" className="bg-[#ece4d6] py-28">
         <h2 className="mb-12 text-center font-serif text-4xl md:text-5xl">Gallery</h2>
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-6 md:grid-cols-4">
-          {galeria.map((src, i) => (
-            <div key={i} className="aspect-square overflow-hidden rounded-xl">
-              <img src={src} alt="The Casa Selva" className="h-full w-full object-cover transition duration-700 hover:scale-110" />
-            </div>
-          ))}
-        </div>
+                <Galeria fotos={galeria} />
       </section>
 
       <section className="relative overflow-hidden py-32">
