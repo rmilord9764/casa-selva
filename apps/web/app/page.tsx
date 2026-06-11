@@ -41,7 +41,7 @@ const servicios = [
   {
     titulo: "Water Sound Bath",
     precio: "1 adult | 1 hour $230 | +$50 additional adult",
-    img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+    img: "/galeria/27.png",
     items: ["Warm water immersion (tub)", "Guided relaxation or meditation", "Sound healing with bowls around the water", "Deep nervous system reset", "Enhanced emotional release + grounding"],
   },
 ];
