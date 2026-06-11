@@ -1,4 +1,5 @@
-import { SquareClient, SquareEnvironment } from 'square';
+import pkg from 'square';
+const { SquareClient, SquareEnvironment } = pkg;
 import { randomUUID } from 'crypto';
 import { config } from '../config.js';
 const client = new SquareClient({ token: config.square.accessToken,
