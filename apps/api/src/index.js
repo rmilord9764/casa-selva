@@ -10,6 +10,7 @@ import { account } from './routes/account.js';
 import { config } from './config.js';
 
 const app = express();
+app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(cors({ origin: config.clientUrl || true }));
