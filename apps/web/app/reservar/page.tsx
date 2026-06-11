@@ -55,7 +55,7 @@ export default function Reservar() {
             <button key={e.id} onClick={() => { setExp(e); setSlot(null); }}
               className={`border p-4 text-left transition ${exp?.id===e.id?'border-terracotta bg-cream-dark':'border-cocoa/20'}`}>
               <p className="font-display text-lg text-cocoa">{e.name}</p>
-              <p className="text-sm text-sage">\${(e.base_price_cents/100).toFixed(0)}</p>
+              <p className="text-sm text-sage">${(e.base_price_cents/100).toFixed(0)}</p>
             </button>
           ))}
         </div>
