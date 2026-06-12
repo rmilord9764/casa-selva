@@ -13,6 +13,7 @@ export default function Reservar() {
   const [card, setCard] = useState<any>(null);
   const [status, setStatus] = useState('');
   const [result, setResult] = useState<any>(null);
+  const [sqReady, setSqReady] = useState(false);
   useEffect(() => { api.experiences().then(setExps); }, []);
   useEffect(() => {
     if (!exp) return;
@@ -24,10 +25,16 @@ export default function Reservar() {
     load(); const t = setInterval(load, 20000); return () => clearInterval(t);
   }, [exp]);
   async function initSquare() {
+    if (card) return;
     // @ts-ignore
     const payments = window.Square.payments(process.env.NEXT_PUBLIC_SQUARE_APP_ID, process.env.NEXT_PUBLIC_SQUARE_LOCATION_ID);
-    const c = await payments.card(); await c.attach('#card-container'); setCard(c);
+    const c = await payments.card();
+    await c.attach('#card-container');
+    setCard(c);
   }
+  useEffect(() => {
+    if (sqReady && slot && !card) { initSquare(); }
+  }, [sqReady, slot, card]);
   async function pay() {
     if (!card || !slot || !exp) return;
     setStatus('Procesando pago…');
@@ -46,7 +53,7 @@ export default function Reservar() {
   );
   return (
     <main className="max-w-3xl mx-auto py-24 px-6">
-      <Script src={`https://${process.env.NEXT_PUBLIC_SQUARE_ENV==='production'?'web':'sandbox.web'}.squarecdn.com/v1/square.js`} onLoad={initSquare} />
+      <Script src={`https://${process.env.NEXT_PUBLIC_SQUARE_ENV==='production'?'web':'sandbox.web'}.squarecdn.com/v1/square.js`} onLoad={() => setSqReady(true)}/>
       <h1 className="font-display text-5xl text-cocoa text-center mb-12">Reserva tu experiencia</h1>
       <section className="mb-10">
         <h2 className="font-display text-2xl text-cocoa mb-4">1 · Elige tu experiencia</h2>
