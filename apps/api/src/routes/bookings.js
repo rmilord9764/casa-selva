@@ -50,7 +50,7 @@ bookings.post('/', async (req, res) => {
     await q(`INSERT INTO notifications (booking_id,kind) VALUES ($1,'confirmation') ON CONFLICT DO NOTHING`, [b.id]);
     res.json({ reference, status: 'confirmed', amount_cents: amount,
       message: 'Reserva confirmada. Revisa tu correo para la direccion y el voucher.' });
-  } catch (err) { console.error('BOOKING ERROR:', err);
+  } catch (err) console.error('BOOKING ERROR:', err?.errors || err?.body || err);
     await client.query('ROLLBACK');
     const map = { SLOT_UNAVAILABLE: 'La fecha ya no esta disponible', NO_CAPACITY: 'No hay capacidad para ese numero de huespedes' };
     res.status(409).json({ error: map[err.message] || 'No se pudo completar la reserva' });
