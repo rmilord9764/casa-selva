@@ -7,7 +7,12 @@ const shell = (title, body) => `<div style="font-family:Georgia,serif;background
     <p style="margin:4px 0 0;font-size:12px;opacity:.8">Day Wellness Retreat</p></div>
     <div style="padding:32px;color:#5A4A3F;line-height:1.6"><h2 style="color:#4A352B">${title}</h2>${body}</div></div></div>`;
 export async function sendEmail({ to, subject, html, attachments }) {
-  await sg.send({ to, from: config.sendgrid.from, subject, html, attachments });
+    try {
+      const [resp] = await sg.send({ to, from: config.sendgrid.from, subject, html, attachments });
+      console.error('MAIL OK:', resp?.statusCode, 'to=', to, 'from=', config.sendgrid.from);
+    } catch (e) {
+      console.error('MAIL ERROR:', e?.code, JSON.stringify(e?.response?.body || e?.message));
+    }
 }
 export const templates = {
   welcome: (g) => shell('Bienvenido/a', `<p>Hola ${g.full_name}, gracias por elegir The Casa Selva.</p>`),
