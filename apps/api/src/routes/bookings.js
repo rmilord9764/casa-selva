@@ -35,7 +35,7 @@ bookings.post('/', async (req, res) => {
       [reference, g.id, exp.id, slot.id, guestsCount, slot.starts_at, slot.ends_at, amount]);
     const payment = await chargeCard({ sourceId, amountCents: amount, referenceId: reference, note: exp.name });
     await client.query(`INSERT INTO payments (booking_id,square_payment_id,amount_cents,status,raw) VALUES ($1,$2,$3,$4,$5)`,
-      [b.id, payment.id, amount, payment.status, payment]);
+      [b.id, payment.id, amount, payment.status, JSON.parse(JSON.stringify(payment, (k, v) => typeof v === 'bigint' ? v.toString() : v))]);
     let sq = null;
     try { sq = await createSquareBooking({ startAt: new Date(slot.starts_at).toISOString(),
       serviceVariationId: exp.square_service_id, customer: { note: guest.full_name + ' (' + reference + ')' } });
