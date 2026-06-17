@@ -41,7 +41,7 @@ export default function Reservar() {
     setStatus('Procesando pago…');
     const tok = await card.tokenize();
     if (tok.status !== 'OK') { setStatus('Error con la tarjeta'); return; }
-    const res = await api.book({ slotId: slot.id, experienceId: exp.id, guestsCount: 1, guest, sourceId: tok.token });
+    const res = await api.book({ slotId: slot.id, experienceId: exp.id, guestsCount: 1, guest, consentAt: new Date().toISOString(), sourceId: tok.token });
     if (res.error) setStatus(res.error); else { setResult(res); setStatus(''); }
   }
   if (result) return (
