@@ -113,11 +113,11 @@ export default function HomePage() {
       <section id="experiencia" className="bg-[#ece4d6] py-28">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="font-serif text-4xl md:text-5xl">The Casa Selva Experience</h2>
-          <ul className="mx-auto mt-10 grid max-w-2xl gap-4 text-left md:grid-cols-2">
-            {experiencia.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-[#5c4f40]"><span className="mt-1 text-[#7a8b6f]">+</span>{item}</li>
-            ))}
-          </ul>
+                  <ul className="mx-auto mt-12 grid max-w-3xl gap-4 text-left sm:grid-cols-2">
+          {experiencia.map((item) => (
+            <li key={item} className="flex items-center gap-4 rounded-2xl border border-[#d8c7a8]/60 bg-white/50 px-5 py-4 text-[#5c4f40] shadow-sm transition hover:bg-white/70 hover:shadow-md"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#7a8b6f]/15 text-lg text-[#7a8b6f]">❀</span><span className="text-base leading-snug">{item}</span></li>
+          ))}
+        </ul>
           <p className="mx-auto mt-12 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">A private, immersive reset in a hidden sanctuary. Step into a deeply curated experience designed to help you disconnect and reconnect with yourself.</p>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {formatos.map((f) => (
