@@ -10,13 +10,13 @@ export const metadata = {
 
 const experiencia = [
   "Welcome tea ceremony",
-  "Intention setting + aromatherapy",
-  "Guided breathwork",
-  "Meditation + somatic work",
-  "Yoga Nidra (deep relaxation)",
-  "Immersive sound healing",
-  "Water Sound healing (private optional for +$50)",
-  "Integration time + refreshments",
+    "Grounding foot salt cleanse + Energetic alignment",
+    "Intention setting",
+    "Guided breathwork",
+    "Meditation + somatic relaxation",
+    "Yoga Nidra (deep restorative relaxation)",
+    "Immersive sound healing journey",
+    "Roses Bath and balneotherapy",
 ];
 
 const formatos = [
