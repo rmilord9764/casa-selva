@@ -14,6 +14,7 @@ export default function Reservar() {
   const [status, setStatus] = useState('');
   const [result, setResult] = useState<any>(null);
   const [sqReady, setSqReady] = useState(false);
+  const [consent, setConsent] = useState(false);
   useEffect(() => { api.experiences().then(setExps); }, []);
   useEffect(() => {
     if (!exp) return;
@@ -93,7 +94,8 @@ export default function Reservar() {
             <input placeholder="Teléfono" className="border border-cocoa/20 p-3 sm:col-span-2" value={guest.phone} onChange={e=>setGuest({...guest,phone:e.target.value})}/>
           </div>
           <div id="card-container" className="mt-6 border border-cocoa/20 p-4 rounded" />
-          <button onClick={pay} disabled={!guest.full_name || !guest.email} className="btn-outline mt-6 w-full text-cocoa disabled:opacity-40">Pagar y confirmar reserva</button>
+          <label className="mt-6 flex items-start gap-2 text-xs text-sage leading-snug"><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} className="mt-1" /><span>Confirmo que la dirección exacta de la propiedad es privada y confidencial. Me comprometo a no compartirla, publicarla ni divulgarla a terceros. Entiendo que hacerlo puede dar lugar a acciones legales en mi contra.</span></label>
+          <button onClick={pay} disabled={!guest.full_name || !guest.email || !consent} className="btn-outline mt-6 w-full text-cocoa disabled:opacity-40">Pagar y confirmar reserva</button>
           {status && <p className="mt-4 text-center text-terracotta">{status}</p>}
           <p className="text-xs text-sage mt-4 text-center">Pago seguro procesado por Square. No almacenamos datos de tu tarjeta.</p>
         </section>
