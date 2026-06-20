@@ -20,10 +20,10 @@ const experiencia = [
 ];
 
 const formatos = [
-    { titulo: "Private Experience", detalle: "1 adult | 2-3 hours | $350 | additional adult +$80 | $100 deposit" },
-  { titulo: "Private Experience for 2", detalle: "2 adults | 2-3 hours | $100 deposit" },
-  { titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit" },
-  { titulo: "Private Group", detalle: "Up to 8 adults | 2-3 hours | inquire | $200 deposit" },
+      { titulo: "Private Experience", detalle: "1 adult | 2-3 hours | $350 | additional adult +$80 | $100 deposit", img: "/galeria/2.png" },
+  { titulo: "Private Experience for 2", detalle: "2 adults | 2-3 hours | $100 deposit", img: "/galeria/4.png" },
+  { titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit", img: "/galeria/1.png" },
+  { titulo: "Private Group", detalle: "Up to 8 adults | 2-3 hours | inquire | $200 deposit", img: "/galeria/3.png" },
 ];
 
 const servicios = [
@@ -122,9 +122,14 @@ export default function HomePage() {
           <p className="mx-auto mt-12 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">A private, immersive reset in a hidden sanctuary. Step into a deeply curated experience designed to help you disconnect and reconnect with yourself.</p>
                     <div className="mt-12 grid gap-6 md:grid-cols-2">
             {formatos.map((f) => (
-              <div key={f.titulo} className="rounded-xl border border-[#d8c7a8] bg-white/60 p-6">
-                <h3 className="font-serif text-xl">{f.titulo}</h3>
-                <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
+                            <div key={f.titulo} className="overflow-hidden rounded-xl border border-[#d8c7a8] bg-white/60 shadow-sm transition hover:shadow-md">
+                <div className="h-44 overflow-hidden">
+                  <img src={f.img} alt={f.titulo} className="h-full w-full object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-serif text-xl">{f.titulo}</h3>
+                  <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
+                </div>
               </div>
             ))}
           </div>
