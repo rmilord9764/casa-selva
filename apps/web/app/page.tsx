@@ -20,10 +20,10 @@ const experiencia = [
 ];
 
 const formatos = [
-      { titulo: "Private Experience", detalle: "1 adult | 2-3 hours | $350 | additional adult +$80 | $100 deposit", img: "/galeria/2.png" },
-  { titulo: "Private Experience for 2", detalle: "2 adults | 2-3 hours | $100 deposit", img: "/galeria/4.png" },
+        { titulo: "Private Experience", detalle: "1 adult | 2-3 hours | $350 | additional adult +$80 | $100 deposit", img: "/galeria/2.png" },
+  { titulo: "Private Experience for 2", detalle: "2 adults | 2-3 hours | $100 deposit", img: "/galeria/23.png" },
   { titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit", img: "/galeria/1.png" },
-  { titulo: "Private Group", detalle: "Up to 8 adults | 2-3 hours | inquire | $200 deposit", img: "/galeria/3.png" },
+  { titulo: "Private Group", detalle: "Up to 8 adults | 2-3 hours | inquire | $200 deposit", img: "/galeria/22.png" },
 ];
 
 const servicios = [
