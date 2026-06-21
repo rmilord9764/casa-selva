@@ -14,6 +14,8 @@ export default function Galeria({ fotos }: { fotos: string[] }) {
             <img
               src={src}
               alt="The Casa Selva"
+              loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover transition duration-700 hover:scale-110"
             />
           </div>
