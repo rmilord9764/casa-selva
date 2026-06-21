@@ -128,7 +128,8 @@ export default function HomePage() {
                 </div>
                 <div className="p-6">
                   <h3 className="font-serif text-xl">{f.titulo}</h3>
-                  <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
+                                    <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
+                  <Link href="/reservar" className="mt-5 inline-block rounded-full bg-[#7a8b6f] px-8 py-3 text-xs uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Reservar</Link>
                 </div>
               </div>
             ))}
