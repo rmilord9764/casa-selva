@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Galeria from "../components/Galeria";
 
@@ -10,17 +9,17 @@ export const metadata = {
 
 const experiencia = [
   "Welcome tea ceremony",
-    "Grounding foot salt cleanse + Energetic alignment",
-    "Intention setting",
-    "Guided breathwork",
-    "Meditation + somatic relaxation",
-    "Yoga Nidra (deep restorative relaxation)",
-    "Immersive sound healing journey",
-    "Roses Bath and balneotherapy",
+  "Grounding foot salt cleanse + Energetic alignment",
+  "Intention setting",
+  "Guided breathwork",
+  "Meditation + somatic relaxation",
+  "Yoga Nidra (deep restorative relaxation)",
+  "Immersive sound healing journey",
+  "Roses Bath and balneotherapy",
 ];
 
 const formatos = [
-        { titulo: "Private Experience", detalle: "1 adult | 2-3 hours | $350 | additional adult +$80 | $100 deposit", img: "/galeria/2.png" },
+  { titulo: "Private Experience", detalle: "1 adult | 2-3 hours | $350 | additional adult +$80 | $100 deposit", img: "/galeria/2.png" },
   { titulo: "Private Experience for 2", detalle: "2 adults | 2-3 hours | $100 deposit", img: "/galeria/23.png" },
   { titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit", img: "/galeria/1.png" },
   { titulo: "Private Group", detalle: "Up to 8 adults | 2-3 hours | inquire | $200 deposit", img: "/galeria/22.png" },
@@ -114,21 +113,21 @@ export default function HomePage() {
       <section id="experiencia" className="bg-[#ece4d6] py-28">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="font-serif text-4xl md:text-5xl">The Casa Selva Experience</h2>
-                  <ul className="mx-auto mt-12 grid max-w-3xl gap-4 text-left sm:grid-cols-2">
-          {experiencia.map((item) => (
-            <li key={item} className="flex items-center gap-4 rounded-2xl border border-[#d8c7a8]/60 bg-white/50 px-5 py-4 text-[#5c4f40] shadow-sm transition hover:bg-white/70 hover:shadow-md"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#7a8b6f]/15 text-lg text-[#7a8b6f]">❀</span><span className="text-base leading-snug">{item}</span></li>
-          ))}
-        </ul>
+          <ul className="mx-auto mt-12 grid max-w-3xl gap-4 text-left sm:grid-cols-2">
+            {experiencia.map((item) => (
+              <li key={item} className="flex items-center gap-4 rounded-2xl border border-[#d8c7a8]/60 bg-white/50 px-5 py-4 text-[#5c4f40] shadow-sm transition hover:bg-white/70 hover:shadow-md"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#7a8b6f]/15 text-lg text-[#7a8b6f]">❀</span><span className="text-base leading-snug">{item}</span></li>
+            ))}
+          </ul>
           <p className="mx-auto mt-12 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">A private, immersive reset in a hidden sanctuary. Step into a deeply curated experience designed to help you disconnect and reconnect with yourself.</p>
-                    <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {formatos.map((f) => (
-                            <div key={f.titulo} className="overflow-hidden rounded-xl border border-[#d8c7a8] bg-white/60 shadow-sm transition hover:shadow-md">
+              <div key={f.titulo} className="overflow-hidden rounded-xl border border-[#d8c7a8] bg-white/60 shadow-sm transition hover:shadow-md">
                 <div className="h-44 overflow-hidden">
-                  <img src={f.img} alt={f.titulo} className="h-full w-full object-cover" />
+                  <img src={f.img} alt={f.titulo} loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 </div>
                 <div className="p-6">
                   <h3 className="font-serif text-xl">{f.titulo}</h3>
-                                    <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
+                  <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
                   <Link href="/reservar" className="mt-5 inline-block rounded-full bg-[#7a8b6f] px-8 py-3 text-xs uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Reservar</Link>
                 </div>
               </div>
@@ -144,7 +143,7 @@ export default function HomePage() {
           {servicios.map((s) => (
             <div key={s.titulo} className="group overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-xl">
               <div className="h-64 overflow-hidden">
-                <img src={s.img} alt={s.titulo} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                <img src={s.img} alt={s.titulo} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
               </div>
               <div className="p-8">
                 <h3 className="font-serif text-2xl">{s.titulo}</h3>
@@ -161,7 +160,7 @@ export default function HomePage() {
 
       <section id="galeria" className="bg-[#ece4d6] py-28">
         <h2 className="mb-12 text-center font-serif text-4xl md:text-5xl">Gallery</h2>
-                <Galeria fotos={galeria} />
+        <Galeria fotos={galeria} />
       </section>
 
       <section className="relative overflow-hidden py-32">
