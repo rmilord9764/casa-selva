@@ -137,6 +137,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="promo" className="bg-[#f3ede1] px-6 py-24">
+        <h2 className="mb-4 text-center font-serif text-4xl md:text-5xl text-[#3d3526]">Monthly Group Experience</h2>
+        <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-[#7a6c58]">$150 per person &middot; 2-3 hour experience &middot; Groups of 6 to 10 people</p>
+        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+          <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.08%20AM.webp" alt="The Casa Selva Experience flyer (Espanol)" loading="lazy" decoding="async" className="w-full rounded-2xl shadow-lg" />
+          <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.39%20AM.webp" alt="The Casa Selva Experience flyer (English)" loading="lazy" decoding="async" className="w-full rounded-2xl shadow-lg" />
+        </div>
+      </section>
+
       <section id="servicios" className="mx-auto max-w-6xl px-6 py-28">
         <h2 className="mb-12 text-center font-serif text-4xl md:text-5xl">Individual Services</h2>
         <div className="grid gap-8 md:grid-cols-3">
