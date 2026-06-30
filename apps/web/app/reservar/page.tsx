@@ -15,6 +15,8 @@ export default function Reservar() {
   const [result, setResult] = useState<any>(null);
   const [sqReady, setSqReady] = useState(false);
   const [consent, setConsent] = useState(false);
+  const [occasion, setOccasion] = useState('');
+  const [occasionOther, setOccasionOther] = useState('');
   useEffect(() => { api.experiences().then(setExps); }, []);
   useEffect(() => {
     if (!exp) return;
@@ -41,9 +43,11 @@ export default function Reservar() {
     setStatus('Procesando pago…');
     const tok = await card.tokenize();
     if (tok.status !== 'OK') { setStatus('Error con la tarjeta'); return; }
-    const res = await api.book({ slotId: slot.id, experienceId: exp.id, guestsCount: 1, guest, consentAt: new Date().toISOString(), sourceId: tok.token });
+    const res = await api.book({ slotId: slot.id, experienceId: exp.id, guestsCount: 1, guest, occasion: showOccasion ? (occasion === 'Other' ? ('Other: ' + occasionOther) : occasion) : '', consentAt: new Date().toISOString(), sourceId: tok.token });
     if (res.error) setStatus(res.error); else { setResult(res); setStatus(''); }
   }
+  const PRIVATE_NAMES = ['Private Experience','Private Experience for 2','Private Group'];
+  const showOccasion = !!(exp && PRIVATE_NAMES.includes(exp.name));
   if (result) return (
     <div className="max-w-lg mx-auto py-32 px-6 text-center">
       <h1 className="font-display text-4xl text-cocoa">¡Reserva confirmada! 🌿</h1>
@@ -93,6 +97,21 @@ export default function Reservar() {
             <input placeholder="Email" type="email" className="border border-cocoa/20 p-3" value={guest.email} onChange={e=>setGuest({...guest,email:e.target.value})}/>
             <input placeholder="Teléfono" className="border border-cocoa/20 p-3 sm:col-span-2" value={guest.phone} onChange={e=>setGuest({...guest,phone:e.target.value})}/>
           </div>
+          {showOccasion && (
+            <div className="mt-6">
+              <label className="block font-display text-lg text-cocoa mb-2">¿Es para una ocasión especial?</label>
+              <select value={occasion} onChange={e=>setOccasion(e.target.value)} className="border border-cocoa/20 p-3 w-full">
+                <option value="">Selecciona una opción (opcional)</option>
+                <option value="Aniversario">Aniversario</option>
+                <option value="Cumpleaños">Cumpleaños</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="Other">Otra ocasión</option>
+              </select>
+              {occasion === 'Other' && (
+                <input placeholder="Escribe la ocasión" className="border border-cocoa/20 p-3 w-full mt-3" value={occasionOther} onChange={e=>setOccasionOther(e.target.value)} />
+              )}
+            </div>
+          )}
           <div id="card-container" className="mt-6 border border-cocoa/20 p-4 rounded" />
           <label className="mt-6 flex items-start gap-2 text-xs text-sage leading-snug"><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} className="mt-1" /><span>Confirmo que la dirección exacta de la propiedad es privada y confidencial. Me comprometo a no compartirla, publicarla ni divulgarla a terceros. Entiendo que hacerlo puede dar lugar a acciones legales en mi contra.</span></label>
           <button onClick={pay} disabled={!guest.full_name || !guest.email || !consent} className="btn-outline mt-6 w-full text-cocoa disabled:opacity-40">Pagar y confirmar reserva</button>
