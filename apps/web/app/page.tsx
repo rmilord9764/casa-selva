@@ -142,8 +142,14 @@ export default function HomePage() {
         <h2 className="mb-4 text-center font-serif text-4xl md:text-5xl text-[#3d3526]">Monthly Group Experience</h2>
         <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-[#7a6c58]">$150 per person &middot; 2-3 hour experience &middot; Groups of 6 to 10 people</p>
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-          <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.08%20AM.webp" alt="The Casa Selva Experience flyer (Espanol)" loading="lazy" decoding="async" className="w-full rounded-2xl shadow-lg" />
-          <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.39%20AM.webp" alt="The Casa Selva Experience flyer (English)" loading="lazy" decoding="async" className="w-full rounded-2xl shadow-lg" />
+          <div>
+            <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.08%20AM.webp" alt="The Casa Selva Experience flyer (Espanol)" loading="lazy" decoding="async" className="w-full rounded-2xl shadow-lg" />
+            <p className="mt-4 text-center text-sm font-medium uppercase tracking-wide text-[#7a8b6f]">Solo el último domingo de cada mes</p>
+          </div>
+          <div>
+            <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.39%20AM.webp" alt="The Casa Selva Experience flyer (English)" loading="lazy" decoding="async" className="w-full rounded-2xl shadow-lg" />
+            <p className="mt-4 text-center text-sm font-medium uppercase tracking-wide text-[#7a8b6f]">Only the last Saturday of each month</p>
+          </div>
         </div>
       </section>
 
