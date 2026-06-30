@@ -12,11 +12,11 @@ const ref = () => 'CS-' + new Date().getFullYear() + '-' + randomBytes(3).toStri
 const schema = z.object({ slotId: z.string().uuid(), experienceId: z.string().uuid(),
   guestsCount: z.number().int().min(1).max(8),
   guest: z.object({ full_name: z.string().min(2), email: z.string().email(), phone: z.string().optional() }),
-  consentAt: z.string().datetime().optional(), sourceId: z.string() });
+  consentAt: z.string().datetime().optional(), occasion: z.string().max(120).optional(), sourceId: z.string() });
 bookings.post('/', async (req, res) => {
   const parse = schema.safeParse(req.body);
   if (!parse.success) return res.status(400).json({ error: parse.error.flatten() });
-  const { slotId, experienceId, guestsCount, guest, sourceId, consentAt } = parse.data;
+  const { slotId, experienceId, guestsCount, guest, sourceId, consentAt, occasion } = parse.data;
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -30,9 +30,9 @@ bookings.post('/', async (req, res) => {
     const amount = exp.base_price_cents + Math.max(0, guestsCount - 1) * 8000;
     const reference = ref();
     const { rows: [b] } = await client.query(
-      `INSERT INTO bookings (reference,guest_id,experience_id,slot_id,guests_count,check_in,check_out,amount_cents,status,consent_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,'pending',$9) RETURNING *`,
-      [reference, g.id, exp.id, slot.id, guestsCount, slot.starts_at, slot.ends_at, amount, consentAt || null]);
+      `INSERT INTO bookings (reference,guest_id,experience_id,slot_id,guests_count,check_in,check_out,amount_cents,status,consent_at,occasion)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,'pending',$9,$10) RETURNING *`,
+      [reference, g.id, exp.id, slot.id, guestsCount, slot.starts_at, slot.ends_at, amount, consentAt || null, occasion || null]);
     const payment = await chargeCard({ sourceId, amountCents: amount, referenceId: reference, note: exp.name });
     await client.query(`INSERT INTO payments (booking_id,square_payment_id,amount_cents,status,raw) VALUES ($1,$2,$3,$4,$5)`,
       [b.id, payment.id, amount, payment.status, JSON.parse(JSON.stringify(payment, (k, v) => typeof v === 'bigint' ? v.toString() : v))]);
