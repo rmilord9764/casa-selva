@@ -19,10 +19,10 @@ const experiencia = [
 ];
 
 const formatos = [
-  { titulo: "Private Experience", detalle: "1 adult | 2-3 hours | $350 | additional adult +$80 | $100 deposit", img: "/galeria/Private%20experience.webp" },
-  { titulo: "Private Experience for 2", detalle: "2 adults | 2-3 hours | $100 deposit", img: "/galeria/Private%20experience%20for%202.webp" },
+  { titulo: "Private Experience", detalle: "1 person | 2-3 hours | $350 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience.webp" },
+  { titulo: "Private Experience for 2", detalle: "2 people | 2-3 hours | $430 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience%20for%202.webp" },
   { titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit", img: "/galeria/Join%20a%20group%20session.webp" },
-  { titulo: "Private Group", detalle: "Up to 8 adults | 2-3 hours | inquire | $200 deposit", img: "/galeria/Private%20group.webp" },
+  { titulo: "Private Group", detalle: "6-13 people | 2-3 hours | $150 per person | $200 deposit | add-on: extra hour +$200", img: "/galeria/Private%20group.webp" },
 ];
 
 const servicios = [
@@ -134,6 +134,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-8 text-sm italic text-[#7a6c58]">Food add-ons available.</p>
+          <p className="mt-3 text-sm italic text-[#7a6c58]">Deposit is refundable if cancellation is notified at least 48 hours in advance.</p>
         </div>
       </section>
 
