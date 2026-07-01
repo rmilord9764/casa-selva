@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Galeria from "../components/Galeria";
+import GroupSession from "../components/GroupSession";
 
 export const metadata = {
   title: "The Casa Selva · Day Wellness Retreat",
@@ -129,33 +130,7 @@ export default function HomePage() {
                   <h3 className="font-serif text-xl">{f.titulo}</h3>
                   <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
                   <Link href="/reservar" className="mt-5 inline-block rounded-full bg-[#7a8b6f] px-8 py-3 text-xs uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Reservar</Link>
-                  {f.titulo === "Join a group session" && (
-                    <div className="mt-6 border-t border-[#e2d5bb] pt-6">
-                      <div className="mb-4 flex justify-center">
-                        <span className="inline-flex items-center gap-2 rounded-full border border-[#c9b892] bg-[#f3ede1] px-4 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-[#7a8b6f]">✦ Experiencia especial mensual · Monthly special</span>
-                      </div>
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        <div className="group overflow-hidden rounded-xl border border-[#e2d5bb] bg-white/70 shadow-sm transition hover:shadow-md">
-                          <div className="overflow-hidden">
-                            <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.08%20AM.webp" alt="The Casa Selva Experience flyer (Espanol)" loading="lazy" decoding="async" className="w-full transition duration-700 group-hover:scale-105" />
-                          </div>
-                          <div className="p-3 text-center">
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-[#7a8b6f]">En español</p>
-                            <p className="mt-1 text-xs font-medium text-[#5c4f40]">Guiada · Último domingo de cada mes</p>
-                          </div>
-                        </div>
-                        <div className="group overflow-hidden rounded-xl border border-[#e2d5bb] bg-white/70 shadow-sm transition hover:shadow-md">
-                          <div className="overflow-hidden">
-                            <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.39%20AM.webp" alt="The Casa Selva Experience flyer (English)" loading="lazy" decoding="async" className="w-full transition duration-700 group-hover:scale-105" />
-                          </div>
-                          <div className="p-3 text-center">
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-[#7a8b6f]">In English</p>
-                            <p className="mt-1 text-xs font-medium text-[#5c4f40]">Guided · Last Saturday of each month</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  {f.titulo === "Join a group session" && <GroupSession />}
                 </div>
               </div>
             ))}
