@@ -129,43 +129,39 @@ export default function HomePage() {
                   <h3 className="font-serif text-xl">{f.titulo}</h3>
                   <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
                   <Link href="/reservar" className="mt-5 inline-block rounded-full bg-[#7a8b6f] px-8 py-3 text-xs uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Reservar</Link>
+                  {f.titulo === "Join a group session" && (
+                    <div className="mt-6 border-t border-[#e2d5bb] pt-6">
+                      <div className="mb-4 flex justify-center">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-[#c9b892] bg-[#f3ede1] px-4 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-[#7a8b6f]">✦ Experiencia especial mensual · Monthly special</span>
+                      </div>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="group overflow-hidden rounded-xl border border-[#e2d5bb] bg-white/70 shadow-sm transition hover:shadow-md">
+                          <div className="overflow-hidden">
+                            <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.08%20AM.webp" alt="The Casa Selva Experience flyer (Espanol)" loading="lazy" decoding="async" className="w-full transition duration-700 group-hover:scale-105" />
+                          </div>
+                          <div className="p-3 text-center">
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-[#7a8b6f]">En español</p>
+                            <p className="mt-1 text-xs font-medium text-[#5c4f40]">Guiada · Último domingo de cada mes</p>
+                          </div>
+                        </div>
+                        <div className="group overflow-hidden rounded-xl border border-[#e2d5bb] bg-white/70 shadow-sm transition hover:shadow-md">
+                          <div className="overflow-hidden">
+                            <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.39%20AM.webp" alt="The Casa Selva Experience flyer (English)" loading="lazy" decoding="async" className="w-full transition duration-700 group-hover:scale-105" />
+                          </div>
+                          <div className="p-3 text-center">
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-[#7a8b6f]">In English</p>
+                            <p className="mt-1 text-xs font-medium text-[#5c4f40]">Guided · Last Saturday of each month</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
           </div>
           <p className="mt-8 text-sm italic text-[#7a6c58]">Food add-ons available.</p>
           <p className="mt-3 text-sm italic text-[#7a6c58]">Deposit is refundable if cancellation is notified at least 48 hours in advance.</p>
-        </div>
-      </section>
-
-      <section id="promo" className="bg-[#f3ede1] px-6 py-24">
-        <div className="mx-auto mb-4 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#c9b892] bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#7a8b6f]">✦ Experiencia especial mensual · Monthly special</span>
-        </div>
-        <h2 className="mb-3 text-center font-serif text-4xl md:text-5xl text-[#3d3526]">Experiencia grupal · Group Experience</h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-[#7a6c58]">$150 por persona · 2–3 horas · Grupos de 6 a 10 personas</p>
-        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-          <div className="group overflow-hidden rounded-2xl border border-[#d8c7a8] bg-white/60 shadow-lg transition hover:shadow-xl">
-            <div className="overflow-hidden">
-              <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.08%20AM.webp" alt="The Casa Selva Experience flyer (Espanol)" loading="lazy" decoding="async" className="w-full transition duration-700 group-hover:scale-105" />
-            </div>
-            <div className="p-5 text-center">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#7a8b6f]">En español</p>
-              <p className="mt-1 text-sm font-medium text-[#5c4f40]">Guiada · Último domingo de cada mes</p>
-            </div>
-          </div>
-          <div className="group overflow-hidden rounded-2xl border border-[#d8c7a8] bg-white/60 shadow-lg transition hover:shadow-xl">
-            <div className="overflow-hidden">
-              <img src="/galeria/WhatsApp%20Image%202026-06-05%20at%2011.11.39%20AM.webp" alt="The Casa Selva Experience flyer (English)" loading="lazy" decoding="async" className="w-full transition duration-700 group-hover:scale-105" />
-            </div>
-            <div className="p-5 text-center">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#7a8b6f]">In English</p>
-              <p className="mt-1 text-sm font-medium text-[#5c4f40]">Guided · Last Saturday of each month</p>
-            </div>
-          </div>
-        </div>
-        <div className="mt-12 flex justify-center">
-          <a href="/reservar" className="inline-block rounded-full bg-[#7a8b6f] px-10 py-4 text-sm font-semibold uppercase tracking-widest text-white shadow-md transition hover:bg-[#68785e]">Reservar · Book this date</a>
         </div>
       </section>
 
