@@ -22,7 +22,7 @@ const formatos = [
   { titulo: "Private Experience", detalle: "1 person | 2-3 hours | $350 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience.webp" },
   { titulo: "Private Experience for 2", detalle: "2 people | 2-3 hours | $430 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience%20for%202.webp" },
   { titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit", img: "/galeria/Join%20a%20group%20session.webp" },
-  { titulo: "Private Group", detalle: "6-13 people | 2-3 hours | $150 per person | $200 deposit | add-on: extra hour +$200", img: "/galeria/Private%20group.webp" },
+  { titulo: "Private Group", detalle: "Minimum 6 people | maximum 13 people | 2-3 hours | $150 per person | $200 deposit | add-on: extra hour +$200 (you can use this hour to relax and eat the food you bring for your event)", img: "/galeria/Private%20group.webp" },
 ];
 
 const servicios = [
