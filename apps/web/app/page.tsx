@@ -106,7 +106,7 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-28 text-center">
-        <h2 className="font-serif text-4xl md:text-5xl">Remind your body what it can do by itself.</h2>
+                <h2 className="font-serif text-4xl md:text-5xl">Reminding your body of what it can do on its own</h2>
         <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">The Casa Selva is a hidden tropical sanctuary created for those seeking peace, reconnection, and a deeper reset.</p>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#5c4f40]">Surrounded by nature, our space blends sound bath, guided meditation, breathwork, Yoga Nidra, grounding rituals, aromatherapy, and intentional rest.</p>
       </section>
