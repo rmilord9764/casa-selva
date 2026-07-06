@@ -6,3 +6,5 @@ html { scroll-behavior: smooth; }
 .reveal.in { opacity: 1; transform: none; }
 .btn-outline { @apply inline-block border border-current px-8 py-3 font-body uppercase tracking-[0.2em] text-sm transition-all duration-500; }
 .btn-outline:hover { @apply bg-terracotta text-cream border-terracotta; }
+@keyframes fadeInImg { from { opacity: 0; } to { opacity: 1; } }
+.fade-in-img { animation: fadeInImg .6s ease-out both; }
