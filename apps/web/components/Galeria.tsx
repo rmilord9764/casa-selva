@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export default function Galeria({ fotos }: { fotos: string[] }) {
   const [verTodas, setVerTodas] = useState(false);
-  const [cargadas, setCargadas] = useState<Record<number, boolean>>({});
   const visibles = verTodas ? fotos : fotos.slice(0, 4);
 
   return (
@@ -17,8 +16,7 @@ export default function Galeria({ fotos }: { fotos: string[] }) {
               alt="The Casa Selva"
               loading="eager"
               decoding="async"
-              onLoad={() => setCargadas((prev) => ({ ...prev, [i]: true }))}
-              className={`h-full w-full object-cover transition-opacity duration-700 hover:scale-110 ${cargadas[i] ? "opacity-100" : "opacity-0"}`}
+              className="h-full w-full object-cover fade-in-img transition duration-700 hover:scale-110"
             />
           </div>
         ))}
