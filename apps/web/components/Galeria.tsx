@@ -4,19 +4,21 @@ import { useState } from "react";
 
 export default function Galeria({ fotos }: { fotos: string[] }) {
   const [verTodas, setVerTodas] = useState(false);
+  const [cargadas, setCargadas] = useState<Record<number, boolean>>({});
   const visibles = verTodas ? fotos : fotos.slice(0, 4);
 
   return (
     <div className="mx-auto max-w-6xl px-6">
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {visibles.map((src, i) => (
-          <div key={i} className="aspect-square overflow-hidden rounded-xl">
+          <div key={i} className="aspect-square overflow-hidden rounded-xl bg-[#d8c7a8]/40">
             <img
               src={src}
               alt="The Casa Selva"
-              loading="lazy"
+              loading="eager"
               decoding="async"
-              className="h-full w-full object-cover transition duration-700 hover:scale-110"
+              onLoad={() => setCargadas((prev) => ({ ...prev, [i]: true }))}
+              className={`h-full w-full object-cover transition-opacity duration-700 hover:scale-110 ${cargadas[i] ? "opacity-100" : "opacity-0"}`}
             />
           </div>
         ))}
