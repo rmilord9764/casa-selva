@@ -4,13 +4,14 @@ import { useState } from "react";
 
 export default function Galeria({ fotos }: { fotos: string[] }) {
   const [verTodas, setVerTodas] = useState(false);
+  const [selected, setSelected] = useState<number | null>(null);
   const visibles = verTodas ? fotos : fotos.slice(0, 4);
 
   return (
     <div className="mx-auto max-w-6xl px-6">
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {visibles.map((src, i) => (
-          <div key={i} className="aspect-square overflow-hidden rounded-xl bg-[#d8c7a8]/40">
+          <div key={i} onClick={() => setSelected(i)} className="cursor-pointer aspect-square overflow-hidden rounded-xl bg-[#d8c7a8]/40">
             <img
               src={src}
               alt="The Casa Selva"
@@ -30,6 +31,15 @@ export default function Galeria({ fotos }: { fotos: string[] }) {
           >
             {verTodas ? "Show less" : "View gallery"}
           </button>
+        </div>
+      )}
+
+      {selected !== null && (
+        <div
+                    onClick={() => setSelected(null)}
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+                  >
+                  <img src={visibles[selected]} alt="The Casa Selva" className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain" />
         </div>
       )}
     </div>
