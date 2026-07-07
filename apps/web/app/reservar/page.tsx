@@ -46,8 +46,7 @@ export default function Reservar() {
     const res = await api.book({ slotId: slot.id, experienceId: exp.id, guestsCount: 1, guest, occasion: showOccasion ? (occasion === 'Other' ? ('Other: ' + occasionOther) : occasion) : '', consentAt: new Date().toISOString(), sourceId: tok.token });
     if (res.error) setStatus(res.error); else { setResult(res); setStatus(''); }
   }
-  const PRIVATE_NAMES = ['Private Experience','Private Experience for 2','Private Group'];
-  const showOccasion = !!(exp && PRIVATE_NAMES.includes(exp.name));
+const showOccasion = !!exp;
   if (result) return (
     <div className="max-w-lg mx-auto py-32 px-6 text-center">
       <h1 className="font-display text-4xl text-cocoa">¡Reserva confirmada! 🌿</h1>
