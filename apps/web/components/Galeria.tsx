@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Galeria({ fotos }: { fotos: string[] }) {
   const [verTodas, setVerTodas] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
+    const [loaded, setLoaded] = useState<Record<number, boolean>>({});
   const visibles = verTodas ? fotos : fotos.slice(0, 4);
 
   return (
@@ -17,8 +18,10 @@ export default function Galeria({ fotos }: { fotos: string[] }) {
               alt="The Casa Selva"
               loading="eager"
               decoding="async"
-              className="h-full w-full object-cover fade-in-img transition duration-700 hover:scale-110"
-            />
+              onLoad={() => setLoaded(l => ({ ...l, [i]: true }))}
+              ref={(el) => { if (el && el.complete) setLoaded(l => (l[i] ? l : { ...l, [i]: true })); }}
+              className={`h-full w-full object-cover transition duration-700 hover:scale-110 ${loaded[i] ? 'opacity-100' : 'opacity-0'}`}            
+                />
           </div>
         ))}
       </div>
