@@ -39,7 +39,9 @@ export default function Galeria({ fotos }: { fotos: string[] }) {
                     onClick={() => setSelected(null)}
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
                   >
+          <button onClick={(e) => { e.stopPropagation(); setSelected((selected - 1 + visibles.length) % visibles.length); }} className="absolute left-3 text-4xl text-white md:left-8 z-10">‹</button>
                   <img src={visibles[selected]} alt="The Casa Selva" className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain" />
+          <button onClick={(e) => { e.stopPropagation(); setSelected((selected + 1) % visibles.length); }} className="absolute right-3 text-4xl text-white md:right-8 z-10">›</button>
         </div>
       )}
     </div>
