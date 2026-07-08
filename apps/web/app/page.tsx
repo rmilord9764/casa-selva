@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Galeria from "../components/Galeria";
 import GroupSession from "../components/GroupSession";
+import MobileNav from "../components/MobileNav";
 
 export const metadata = {
   title: "The Casa Selva · Day Wellness Retreat",
@@ -90,6 +91,7 @@ export default function HomePage() {
             <a href="#galeria" className="transition hover:text-[#d8c7a8]">Gallery</a>
             <a href="#contacto" className="transition hover:text-[#d8c7a8]">Contact</a>
           </div>
+            <MobileNav />
           <Link href="/reservar" className="rounded-full border border-[#f7f3ec]/60 px-6 py-2 text-xs uppercase tracking-widest text-[#f7f3ec] transition hover:bg-[#f7f3ec] hover:text-[#3a2e22]">Book now</Link>
         </nav>
       </header>
