@@ -21,10 +21,10 @@ const experiencia = [
 ];
 
 const formatos = [
-  { titulo: "Private Experience", detalle: "1 person | 2-3 hours | $350 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience.webp" },
-  { titulo: "Private Experience for 2", detalle: "2 people | 2-3 hours | $430 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience%20for%202.webp" },
-  { titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit", img: "/galeria/Join%20a%20group%20session.webp" },
-  { titulo: "Private Group", detalle: "Minimum 6 people | maximum 13 people | 2-3 hours | $150 per person | $200 deposit | add-on: extra hour +$200 (you can use this hour to relax and eat the food you bring for your event)", img: "/galeria/Private%20group.webp" },
+  { slug: "private-experience", titulo: "Private Experience", detalle: "1 person | 2-3 hours | $350 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience.webp" },
+  {slug: "private-experience-2",  titulo: "Private Experience for 2", detalle: "2 people | 2-3 hours | $430 | add-on +$50 (flower & salt bath) | $100 deposit", img: "/galeria/Private%20experience%20for%202.webp" },
+  {slug: "join-group-session",  titulo: "Join a group session", detalle: "Up to 8 adults | 2-3 hours | $150 | English or Spanish | $50 deposit", img: "/galeria/Join%20a%20group%20session.webp" },
+  {slug: "private-group",  titulo: "Private Group", detalle: "Minimum 6 people | maximum 13 people | 2-3 hours | $150 per person | $200 deposit | add-on: extra hour +$200 (you can use this hour to relax and eat the food you bring for your event)", img: "/galeria/Private%20group.webp" },
 ];
 
 const servicios = [
@@ -131,7 +131,7 @@ export default function HomePage() {
                 <div className="p-6">
                   <h3 className="font-serif text-xl">{f.titulo}</h3>
                   <p className="mt-2 text-sm text-[#5c4f40]">{f.detalle}</p>
-                  <Link href="/reservar" className="mt-5 inline-block rounded-full bg-[#7a8b6f] px-8 py-3 text-xs uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Reservar</Link>
+                  <Link href={`/reservar?exp=${f.slug}`} className="mt-5 inline-block rounded-full bg-[#7a8b6f] px-8 py-3 text-xs uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Reservar</Link>
                   {f.titulo === "Join a group session" && <GroupSession />}
                 </div>
               </div>
