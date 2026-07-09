@@ -30,18 +30,21 @@ const formatos = [
 const servicios = [
   {
     titulo: "Private Sound Bath",
+    slug: "private-sound-bath",
     precio: "1 adult | 1 hour $160 | $60 per additional adult",
     img: "/galeria/26.png",
     items: ["Personalized intention setting", "Guided meditation + breathwork", "Somatic relaxation techniques", "Immersive sound healing (focused on you)"],
   },
   {
     titulo: "Group Sound Bath",
+    slug: "group-sound-bath",
     precio: "Join a class up to 8 adults | 1 hour $80pp",
     img: "/galeria/8.png",
     items: ["Guided meditation to arrive", "Gentle breathwork", "Intention setting", "Immersive sound healing with bowls"],
   },
   {
     titulo: "Water Sound Bath",
+    slug: "water-sound-bath",
     precio: "1 adult | 1 hour $230 | +$50 additional adult",
     img: "/galeria/27.png",
     items: ["Warm water immersion (tub)", "Guided relaxation or meditation", "Sound healing with bowls around the water", "Deep nervous system reset", "Enhanced emotional release + grounding"],
@@ -156,6 +159,7 @@ export default function HomePage() {
                 <ul className="mt-4 space-y-2 text-sm text-[#5c4f40]">
                   {s.items.map((it) => (<li key={it} className="flex gap-2"><span className="text-[#7a8b6f]">-</span>{it}</li>))}
                 </ul>
+                <Link href={`/reservar?exp=${s.slug}`} className="mt-6 inline-block rounded-full bg-[#7a8b6f] px-8 py-3 text-xs uppercase tracking-widest text-white transition hover:bg-[#697a5f]">Reservar</Link>
               </div>
             </div>
           ))}
