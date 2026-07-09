@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import { api } from '@/lib/api';
-type Exp = { id:string; name:string; base_price_cents:number };
+type Exp = { id:string; slug:string; name:string; base_price_cents:number };
 type Slot = { id:string; experience_id:string; starts_at:string };
 export default function Reservar() {
   const [exps, setExps] = useState<Exp[]>([]);
@@ -17,7 +17,8 @@ export default function Reservar() {
   const [consent, setConsent] = useState(false);
   const [occasion, setOccasion] = useState('');
   const [occasionOther, setOccasionOther] = useState('');
-  useEffect(() => { api.experiences().then(setExps); }, []);
+  const [locked, setLocked] = useState(false);
+  useEffect(() => { api.experiences().then((list: Exp[]) => { setExps(list); const wanted = new URLSearchParams(window.location.search).get('exp'); if (wanted) { const found = list.find((e) => e.slug === wanted); if (found) { setExp(found); setLocked(true); } } }); }, []);
   useEffect(() => {
     if (!exp) return;
     const load = () => {
@@ -59,6 +60,7 @@ const showOccasion = !!exp;
     <main className="max-w-3xl mx-auto py-24 px-6">
       <Script src={`https://${process.env.NEXT_PUBLIC_SQUARE_ENV==='production'?'web':'sandbox.web'}.squarecdn.com/v1/square.js`} onLoad={() => setSqReady(true)}/>
       <h1 className="font-display text-5xl text-cocoa text-center mb-12">Reserva tu experiencia</h1>
+      {!locked && (
       <section className="mb-10">
         <h2 className="font-display text-2xl text-cocoa mb-4">1 · Elige tu experiencia</h2>
         <div className="grid sm:grid-cols-3 gap-4">
@@ -71,6 +73,7 @@ const showOccasion = !!exp;
           ))}
         </div>
       </section>
+      )}
       {exp && (
         <section className="mb-10">
           <h2 className="font-display text-2xl text-cocoa mb-4">2 · Elige tu fecha</h2>
