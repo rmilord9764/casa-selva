@@ -95,7 +95,7 @@ export default function HomePage() {
             <a href="#contacto" className="transition hover:text-[#d8c7a8]">Contact</a>
           </div>
             <MobileNav />
-          <Link href="/reservar" className="rounded-full border border-[#f7f3ec]/60 px-6 py-2 text-xs uppercase tracking-widest text-[#f7f3ec] transition hover:bg-[#f7f3ec] hover:text-[#3a2e22]">Book now</Link>
+          <Link href="/#experiencia" className="rounded-full border border-[#f7f3ec]/60 px-6 py-2 text-xs uppercase tracking-widest text-[#f7f3ec] transition hover:bg-[#f7f3ec] hover:text-[#3a2e22]">Book now</Link>
         </nav>
       </header>
 
