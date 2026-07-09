@@ -76,7 +76,7 @@ const showOccasion = !!exp;
       )}
       {exp && (
         <section className="mb-10">
-          <h2 className="font-display text-2xl text-cocoa mb-4">2 · Elige tu fecha</h2>
+          <h2 className="font-display text-2xl text-cocoa mb-4">{locked ? '1' : '2'} · Elige tu fecha</h2>
           {slots.length === 0 ? <p className="text-sage">No hay fechas disponibles por ahora.</p> : (
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {slots.map(s => { const d = new Date(s.starts_at); return (
@@ -93,7 +93,7 @@ const showOccasion = !!exp;
       )}
       {slot && (
         <section>
-          <h2 className="font-display text-2xl text-cocoa mb-4">3 · Tus datos y pago</h2>
+          <h2 className="font-display text-2xl text-cocoa mb-4">{locked ? '2' : '3'} · Tus datos y pago</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <input placeholder="Nombre completo" className="border border-cocoa/20 p-3" value={guest.full_name} onChange={e=>setGuest({...guest,full_name:e.target.value})}/>
             <input placeholder="Email" type="email" className="border border-cocoa/20 p-3" value={guest.email} onChange={e=>setGuest({...guest,email:e.target.value})}/>
