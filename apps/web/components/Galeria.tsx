@@ -3,10 +3,26 @@
 import { useState } from "react";
 import Image from "next/image";
 
+const shimmer = (w, h) => `
+<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <linearGradient id="g">
+      <stop stop-color="#d8c7a8" offset="20%" />
+      <stop stop-color="#f1e9d8" offset="50%" />
+      <stop stop-color="#d8c7a8" offset="70%" />
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="#d8c7a8" />
+  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1.2s" repeatCount="indefinite" />
+</svg>`;
+
+const toBase64 = (str) =>
+  typeof window === "undefined" ? Buffer.from(str).toString("base64") : window.btoa(str);
+
 export default function Galeria({ fotos }: { fotos: string[] }) {
   const [verTodas, setVerTodas] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
-  const [loaded, setLoaded] = useState<Record<number, boolean>>({});
   const visibles = verTodas ? fotos : fotos.slice(0, 4);
 
   return (
@@ -21,9 +37,9 @@ export default function Galeria({ fotos }: { fotos: string[] }) {
               sizes="(max-width: 768px) 50vw, 25vw"
               quality={70}
               priority={i < 4}
-              onLoad={() => setLoaded(l => ({ ...l, [i]: true }))}
-              ref={(el) => { if (el && el.complete) setLoaded(l => (l[i] ? l : { ...l, [i]: true })); }}
-              className={`object-cover transition duration-700 hover:scale-110 ${loaded[i] ? 'opacity-100' : 'opacity-0'}`}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 700))}`}
+              className="object-cover transition duration-700 hover:scale-110"
             />
           </div>
         ))}
